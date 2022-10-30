@@ -11,7 +11,7 @@ public class mainClass {
 
         while (atmOn == true) {
             System.out.println("ATM (Cash: " + cash + ") / (Balance: " + balance + ")");
-            System.out.println("1- Withdraw\n2- Deposit\n3- Exit");
+            System.out.println("1 - Withdraw\n2 - Deposit\n3 - Exit");
 
             while(operation<1 || operation>3) {
                 System.out.print("What do you want to do?: ");
@@ -20,21 +20,21 @@ public class mainClass {
 
             switch (operation) {
                 case 1:
-                    if (balance != 0) {
                         System.out.print("How much money do you want to withdraw?: ");
                         wd = scanner.nextFloat();
-                        while (wd <= 0) {
+                        while (wd <= 0 && balance > wd) {
                             System.out.print("How much money do you want to withdraw?: ");
                             wd = scanner.nextFloat();
                         }
+                        if (wd <= balance) {
+                            balance -= wd;
+                            cash += wd;
+                            System.out.println("\n\n\n\nWithdraw completed successfully. Your new balance is: " + balance);
+                        }
+                        else {
+                            System.out.println("\n\n\n\nYou don't have enough balance to do that...");
+                        }
 
-                        balance -= wd;
-                        cash += wd;
-                        System.out.println("\n\n\n\nWithdraw completed successfully. Your new balance is: " + balance);
-                    }
-                    else {
-                        System.out.println("\n\n\n\nYou don't have enough balance to do that...");
-                    }
                     wd = 0;
                     break;
 
