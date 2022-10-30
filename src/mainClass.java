@@ -22,7 +22,7 @@ public class mainClass {
                 case 1:
                         System.out.print("How much money do you want to withdraw?: ");
                         wd = scanner.nextFloat();
-                        while (wd <= 0 && balance > wd) {
+                        while (wd <= 0 && balance >= wd) {
                             System.out.print("How much money do you want to withdraw?: ");
                             wd = scanner.nextFloat();
                         }
@@ -41,7 +41,7 @@ public class mainClass {
                 case 2:
                     System.out.print("How much money do you want to deposit?: ");
                     dep = scanner.nextFloat();
-                    while (dep <= 0) {
+                    while (dep <= 0 && cash >= dep) {
                         System.out.print("How much money do you want to deposit?: ");
                         dep = scanner.nextFloat();
                     }
